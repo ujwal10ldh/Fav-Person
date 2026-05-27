@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sirf App Liye ❤️</title>
+<title>Sirf App Ke Liye ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -208,8 +209,8 @@
 
   .glass-card {
     background: var(--glass);
-    backdrop-filter: blur(20px) saApprate(1.3);
-    -webkit-backdrop-filter: blur(20px) saApprate(1.3);
+    backdrop-filter: blur(20px) saturate(1.3);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
     border: 1.5px solid var(--glass-border);
     border-radius: 24px;
     padding: 50px 44px;
@@ -389,6 +390,20 @@
   }
   #respectful-msg.show { opacity: 1; transform: translateY(0); display: block; }
 
+  /* ── BLUR OVERLAY for Yes Ending ── */
+  #blur-overlay {
+    position: fixed; inset: 0; z-index: 498;
+    backdrop-filter: blur(28px) saturate(1.8);
+    -webkit-backdrop-filter: blur(28px) saturate(1.8);
+    background: rgba(255, 220, 240, 0.35);
+    opacity: 0; pointer-events: none;
+    transition: opacity 1s ease;
+  }
+  body.night #blur-overlay {
+    background: rgba(20, 5, 50, 0.5);
+  }
+  #blur-overlay.show { opacity: 1; }
+
   #yes-ending {
     position: fixed; inset: 0; z-index: 500;
     display: flex; align-items: center; justify-content: center;
@@ -401,11 +416,11 @@
   #yes-ending.show { opacity: 1; pointer-events: all; }
   #yes-ending-bg {
     position: fixed; inset: 0; z-index: -1;
-    background: radial-gradient(ellipse at center, rgba(255,100,160,0.35) 0%, rgba(192,132,252,0.3) 50%, transparent 100%);
+    background: radial-gradient(ellipse at center, rgba(255,100,160,0.4) 0%, rgba(192,132,252,0.35) 45%, rgba(255,157,226,0.15) 100%);
     animation: endingPulse 3s ease-in-out infinite alternate;
   }
   @keyframes endingPulse {
-    from { opacity: 0.6; transform: scale(1); }
+    from { opacity: 0.7; transform: scale(1); }
     to { opacity: 1; transform: scale(1.08); }
   }
   .ending-title {
@@ -414,6 +429,8 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     opacity: 0; transform: scale(0.7);
     transition: opacity 1s ease 0.5s, transform 1.2s ease 0.5s;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 24px rgba(224,29,122,0.3));
   }
   #yes-ending.show .ending-title { opacity: 1; transform: scale(1); }
   .ending-note {
@@ -466,9 +483,9 @@
   .float-heart {
     position: fixed; pointer-events: none; z-index: 502;
     font-size: 1.4rem; opacity: 0;
-    animation: floatHearAppp 2.5s ease-out forwards;
+    animation: floatHeart 2.5s ease-out forwards;
   }
-  @keyframes floatHearAppp {
+  @keyframes floatHeart {
     0% { opacity: 0.9; transform: translateY(0) scale(0.8); }
     80% { opacity: 0.6; }
     100% { opacity: 0; transform: translateY(-220px) scale(1.4) rotate(15deg); }
@@ -535,6 +552,9 @@
 <canvas id="particles-canvas"></canvas>
 <canvas id="confetti-canvas"></canvas>
 
+<!-- Blur overlay for yes ending -->
+<div id="blur-overlay"></div>
+
 <!-- ══════════════════ HERO ══════════════════ -->
 <section id="hero">
   <div class="aurora-bg">
@@ -543,11 +563,11 @@
     <div class="aurora-blob"></div>
   </div>
   <div id="hero-content">
-    <p class="hero-line" id="h1">Main jaanta hoon main perfect nahi hoon...</p>
-    <p class="hero-line hero-line-2" id="h2">Par Appke liye jo feel karta hoon, woh bilkul saccha hai.</p>
+    <p class="hero-line" id="h1">Main jaanta hoon main perfect nahi hoon…</p>
+    <p class="hero-line hero-line-2" id="h2">Par App ke liye jo feel karta hoon, woh bilkul saccha hai.</p>
     <span class="hero-name" id="hero-name">Sirf App ke liye ❤️</span>
     <div class="hero-scroll-hint">
-      <span>Neeche scroll karo</span>
+      <span>Neeche scroll karein</span>
       <div class="scroll-chevron"></div>
     </div>
   </div>
@@ -561,42 +581,43 @@
     <p class="message-body">
       <em>Shayad main sabse cute nahi hoon,<br>
       shayad sabse handsome bhi nahi,<br>
-      aur shayad sahi words bhi nahi pata mujhe...</em>
+      aur shayad sahi words bhi nahi pata mujhe…</em>
       <br><br>
-      Par agar Appm mere saath raho,<br>toh yeh waada karta hoon:
+      Par agar App mere saath rehein,<br>
+      toh yeh waada karta hoon:
     </p>
     <ul class="promise-list">
       <li class="promise-item">🤝 Wafadaari</li>
       <li class="promise-item">🙏 Izzat</li>
-      <li class="promise-item">👁️ Dhyaan</li>
+      <li class="promise-item">👁️ Poora Dhyaan</li>
       <li class="promise-item">💪 Mehnat</li>
       <li class="promise-item">🌿 Sachhai</li>
       <li class="promise-item">🫶 Parwaah</li>
-      <li class="promise-item">❤️ Kabhi akela nahi</li>
+      <li class="promise-item">❤️ Kabhi Akela Nahi</li>
     </ul>
   </div>
 </section>
 
 <!-- ══════════════════ WHY SPECIAL ══════════════════ -->
 <section id="why-special">
-  <p class="section-title reveal">Jo cheezein Appjhe mere liye alag banati hain…</p>
+  <p class="section-title reveal">Jo cheezein App ko mere liye alag banati hain…</p>
   <div class="cards-grid">
-    <div class="special-card reveal" data-msg=" smile aise aati hai jaise badlon ke beech se dhoop nikle — sab kuch roshan kar deti hai, meri duniya bhi.">
+    <div class="special-card reveal" data-msg="Appki smile aise aati hai jaise badlon ke beech se dhoop nikle — sab kuch roshan kar deti hai, meri duniya bhi.">
       <span class="card-emoji">🌸</span>
       <div class="card-title">Appki Smile</div>
       <div class="card-msg"></div>
     </div>
-    <div class="special-card reveal" data-msg="Appki energy alag hi hai — electric bhi, gentle bhi. Appke paas rehne se aam cheezein bhi khaas lagti hain. Yeh sirf Appki baat hai.">
+    <div class="special-card reveal" data-msg="Appki energy alag hi hai — electric bhi, gentle bhi. Appke paas rehne se aam cheezein bhi khaas lagti hain. Yeh sirf Appki hi baat hai.">
       <span class="card-emoji">✨</span>
       <div class="card-title">Appki Energy</div>
       <div class="card-msg"></div>
     </div>
-    <div class="special-card reveal" data-msg="App jis tarah bina kisi effort ke dusron ki parwaah karta hai — yeh Appki asli pehchaan hai. Yeh dekh ke hi sab samajh aata hai.">
+    <div class="special-card reveal" data-msg="App jis tarah bina kisi effort ke dusron ki parwaah karte hain — yeh Appki asli pehchaan hai. Yeh dekh ke hi sab samajh aata hai.">
       <span class="card-emoji">🤍</span>
       <div class="card-title">Appki Kindness</div>
       <div class="card-msg"></div>
     </div>
-    <div class="special-card reveal" data-msg="Jab App paas Hote hai, sab kuch thoda better lagta hai. Appki presence ka jo feel hai — woh hamesha chahiye mujhe.">
+    <div class="special-card reveal" data-msg="Jab App paas hote hain, sab kuch thoda better lagta hai. Appki presence ka jo feel hai — woh hamesha chahiye mujhe.">
       <span class="card-emoji">🌙</span>
       <div class="card-title">Appki Presence</div>
       <div class="card-msg"></div>
@@ -609,7 +630,7 @@
   <p class="confession-text reveal">
     Main sirf Appki looks ki wajah se nahi pada.<br>
     Dheere dheere mujhe Appki baatein,<br>
-    tera care karna,<br>
+    Appka care karna,<br>
     Appki presence ka sukoon — sab pasand aane laga.
   </p>
   <blockquote class="reveal">
@@ -621,7 +642,7 @@
 <!-- ══════════════════ PROPOSAL ══════════════════ -->
 <section id="proposal">
   <div class="proposal-card reveal">
-    <div class="proposal-q">Kya Appm meri girlfriend banogi? ❤️</div>
+    <div class="proposal-q">Kya App meri girlfriend banenge? ❤️</div>
     <div class="btn-group">
       <button class="btn-yes" id="btn-yes">Haan ❤️</button>
       <button class="btn-maybe" id="btn-maybe">Thoda Waqt Chahiye 🌿</button>
@@ -631,26 +652,27 @@
   </div>
   <div id="respectful-msg">
     Koi pressure nahi.<br>
-    Appki khushi aur comfort mere liye<br>
-    har cheez se zyada important hai. Main hamesha yahaan hoon. 🌿
+    Appki khushi aur Appka comfort mere liye<br>
+    har cheez se zyada important hai.<br>
+    Main hamesha yahaan hoon, jab bhi zaroorat ho. 🌿
   </div>
 </section>
 
 <!-- ══════════════════ YES ENDING ══════════════════ -->
 <div id="yes-ending">
   <div id="yes-ending-bg"></div>
-  <div class="ending-title">Shukriya ki Appne mujhe apni duniya mein<br>jagah di. ❤️</div>
+  <div class="ending-title">Shukriya ki Appne mujhe Apni duniya mein<br>jagah di. ❤️</div>
   <div class="glass-card ending-note">
     Yeh page mere dil ki har sacchi feeling se banaya hai.<br>
     Koi borrowed lines nahi, koi perfect words nahi — bas main,<br>
-    jo Appjhe choose kar raha hoon, umeed hai Appne hone diya. 🌸
+    jo App ko choose kar raha hoon,<br>umeed hai Appne hone diya. 🌸
   </div>
   <div class="music-viz">
     <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     <div class="bar"></div><div class="bar"></div><div class="bar"></div>
   </div>
-  <div class="ending-close" onclick="closeEnding()">← shuruat pe wapas jao</div>
+  <div class="ending-close" onclick="closeEnding()">← Shuruat pe wapas jaayein</div>
 </div>
 
 <script>
@@ -855,6 +877,8 @@ btnYes.addEventListener('click', (e) => {
 
 function launchYesEnding() {
   startConfetti();
+  // Show blur overlay first
+  document.getElementById('blur-overlay').classList.add('show');
   setTimeout(() => {
     const ending = document.getElementById('yes-ending');
     ending.classList.add('show');
@@ -874,6 +898,7 @@ function launchYesEnding() {
 
 function closeEnding() {
   document.getElementById('yes-ending').classList.remove('show');
+  document.getElementById('blur-overlay').classList.remove('show');
   document.body.style.overflow = '';
   stopConfetti();
 }
@@ -914,7 +939,7 @@ function stopConfetti() {
 }
 
 function animConfetti() {
-  if (!confettiRunning) reApprn;
+  if (!confettiRunning) return;
   cCtx.clearRect(0,0,cCan.width,cCan.height);
   confettiPieces.forEach(p => {
     p.x += p.dx; p.y += p.dy; p.rot += p.drot;
